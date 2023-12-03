@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import User from "./User"
-import PageButton from "./PageButton";
 import Shimmer from "./Shimmer";
-import { MdDeleteOutline } from "react-icons/md";
-import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import Pagination from "./Pagination";
+import Header from "./Header";
 
 const Dashboard = () => {
 
@@ -14,7 +12,7 @@ const Dashboard = () => {
     const [isAllChecked, setIsAllChecked] = useState(false);
     const [selectedUsers, setselectedUsers] = useState([]);
     const [isButtonDisabled, setButtonDisabled] = useState(true);
-    const [searchTerm, setSearchTerm] = useState("");
+
 
     const deleteUser = (id) => {
         // console.log(id);
@@ -33,7 +31,7 @@ const Dashboard = () => {
         setMainUsers(newMainUsers);
     }
 
-    const handleSearch = () => {
+    const handleSearch = (searchTerm) => {
         let newUsers = mainusers.filter((user) => {
             return Object.values(user).some((value) => { return value.toLowerCase().includes(searchTerm); })
         })
@@ -84,18 +82,9 @@ const Dashboard = () => {
 
         <section className="bg-blueGray-50">
             <div className="w-full px-4 mx-auto m-4">
-                <div className="flex flex-col break-words bg-white w-full shadow-lg rounded ">
-                    <div className="rounded-t mb-0 px-4 py-3 border-0">
-                        <div className="flex w-full flex-wrap items-center">
-                            <div className="w-8/12 px-0 sm:px-4 flex ">
-                                <input onChange={(e) => { setSearchTerm(e.target.value.toLowerCase()) }} value={searchTerm} type="text" className="border p-1 px-2 sm:p-2 sm:px-5 w-full min-[900px]:w-6/12" placeholder="Search ...." />
-                                <button onClick={handleSearch} className="bg-blue-500 text-white px-2 py-1 sm:px-2 sm:py-2 text-sm sm:text-md lg:text-base">Search</button>
-                            </div>
-                            <div className="w-4/12 px-0 md:px-4 flex-grow flex-1 text-right">
-                                <button onClick={deleteSelectedUsers} disabled={isButtonDisabled} className={selectedUsers.length > 0 ? "search-icon bg-red-500 cursor-pointer text-white active:bg-indigo-600 text-xs font-bold uppercase px-2 py-2 rounded outline-none focus:outline-none mr-1 mb-1" : "search-icon cursor-not-allowed bg-red-300 text-white active:bg-indigo-600 text-xs font-bold uppercase px-2 py-2 rounded outline-none focus:outline-none mr-1 mb-1"} type="button"><MdDeleteOutline className="text-lg" /></button>
-                            </div>
-                        </div>
-                    </div>
+                <div className="flex flex-col break-words bg-white w-full shadow-lg rounded">
+
+                    <Header handleSearch={handleSearch} deleteSelectedUsers={deleteSelectedUsers} isButtonDisabled={isButtonDisabled} selectedUsers={selectedUsers} />
 
                     <div className="block w-full overflow-x-auto">
                         <table className="items-center bg-transparent w-full  border-collapse ">
@@ -125,74 +114,17 @@ const Dashboard = () => {
 
                                     users.length === 0 ? <Shimmer /> :
                                         users.slice(page * 10 - 10, page * 10).map((user, i) => {
-                                            return <User key={user.id} user={user} users={users} setUsers={setUsers} deleteUser={deleteUser} selectedUsers={selectedUsers} setselectedUsers={setselectedUsers} isAllChecked={isAllChecked} setIsAllChecked={setIsAllChecked} setButtonDisabled={setButtonDisabled} />
+                                            return <User key={user.id} user={user} users={users} setUsers={setUsers} deleteUser={deleteUser} selectedUsers={selectedUsers} setselectedUsers={setselectedUsers} isAllChecked={isAllChecked} setIsAllChecked={setIsAllChecked} setButtonDisabled={setButtonDisabled} mainusers={mainusers} setMainUsers={setMainUsers} />
                                         })
                                 }
-
-
                             </tbody>
 
                         </table>
                     </div>
-
                 </div>
 
-                {/* footer design */}
-                <div className="rounded-t px-0 py-3 my-4 mt-6 border-0">
-                    <div className="flex flex-wrap items-center">
-                        <div className="w-full px-0 sm:px-2 md:px-3 max-w-full flex-grow flex-1 ">
-                            <p className="text-xs sm:text-sm min-[768px]:text-[12px] lg:text-base">{selectedUsers.length} of {users.length} row(s) selected.`</p>
-                        </div>
-                        <div className="w-full px-0 sm:px-1 md:px-1 lg:px-4 max-w-full flex flex-col md:flex-row gap-4  justify-end  flex-grow flex-1 text-right">
-                            {/* // number Components */}
-
-                            <div className="my-auto">
-                                <p className="text-xs text-center  sm:text-sm md:text-sm min-[768px]:text-[12px]  lg:text-base">
-                                    Page {page} of {Math.ceil(users.length / 10) || 1}
-                                </p>
-                            </div>
-                            <div>
-                                <nav>
-                                    <ul className="flex justify-center gap-1 min[800px]:gap-2 sm:mr-0 md:mr-4 lg:mr-10">
-                                        <li>
-                                            <button
-                                                className="border flex h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-8  lg:w-8 items-center justify-center rounded-sm  p-0 text-sm"
-                                                onClick={() => { handlePageChange(1) }}
-                                            >1</button>
-                                        </li>
-
-                                        <li>
-                                            <button
-                                                className="previous-page border flex h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-8  lg:w-8 items-center justify-center rounded-sm  p-0 text-sm"
-                                                onClick={() => { handlePageChange(page - 1) }}
-                                            ><MdOutlineKeyboardArrowLeft /></button>
-                                        </li>
-                                        {
-                                            [...Array(Math.ceil(users.length / 10) || 1)].map((c, i) => {
-                                                return <PageButton key={i + 1} page={page} value={i + 1} handlePageChange={handlePageChange} />
-                                            })
-                                        }
-                                        <li>
-                                            <button
-                                                className="next-page border flex h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-8  lg:w-8 items-center justify-center rounded-sm  p-0 text-sm"
-                                                aria-label="Next"
-                                                onClick={() => { handlePageChange(page + 1) }}
-                                            ><MdOutlineKeyboardArrowRight /> </button>
-                                        </li>
-                                        <li>
-                                            <button
-                                                className="border flex h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-8  lg:w-8 items-center justify-center rounded-sm  p-0 text-sm"
-                                                aria-label="Next"
-                                                onClick={() => { handlePageChange(Math.ceil(users.length / 10) || 1) }}
-                                            >{Math.ceil(users.length / 10) || 1}</button>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                {/* Pagination */}
+                <Pagination page={page} handlePageChange={handlePageChange} selectedUsers={selectedUsers} users={users} />
             </div>
 
         </section >
