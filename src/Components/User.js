@@ -50,19 +50,19 @@ const User = ({ user, deleteUser, selectedUsers, setselectedUsers, isAllChecked,
     return (
         <>
             <tr className={isAllChecked || selectedUsers.includes(user.name) ? "bg-gray-200" : ""}>
-                <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2  md:px-6 md:py-4 align-middle text-xs sm:text-lg md:text-xl lg:text-xl whitespace-nowrap  text-left text-blueGray-700 ">
+                <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2   md:px-4 md:py-3  align-middle text-xs sm:text-sm md:text-base lg:text-xl whitespace-nowrap  text-left text-blueGray-700 ">
                     <input onChange={() => { handleSingleChange(user.name) }} checked={isAllChecked || selectedUsers.includes(user.name)} value={user.name} className='w-[1rem] h-[1rem] sm:w-[1.25rem] sm:h-[1.25rem]' type="checkbox" id="vehicle1" name="vehicle1" />
                 </td>
-                <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2  md:px-6 md:py-4 align-middle text-xs sm:text-lg md:text-xl lg:text-xl whitespace-nowrap  text-left text-blueGray-700 ">
+                <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2   md:px-4 md:py-3  align-middle text-xs sm:text-sm md:text-base lg:text-xl whitespace-nowrap  text-left text-blueGray-700 ">
                     {isEdit ? <input type='text' className='border' onChange={(e) => { setcurrentEditUser({ ...currentEditUser, name: e.target.value }) }} value={currentEditUser.name} name='name' /> : user.name}
                 </td>
-                <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2  md:px-6 md:py-4 align-middle text-xs sm:text-lg md:text-xl lg:text-xl whitespace-nowrap  ">
+                <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2   md:px-4 md:py-3  align-middle text-xs sm:text-sm md:text-base lg:text-xl whitespace-nowrap  ">
                     {isEdit ? <input type='email' className='border' onChange={(e) => { setcurrentEditUser({ ...currentEditUser, email: e.target.value }) }} value={currentEditUser.email} name='name' /> : user.email}
                 </td>
-                <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2  md:px-6 md:py-4 align-center text-xs sm:text-lg md:text-xl lg:text-xl whitespace-nowrap ">
+                <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2   md:px-4 md:py-3  align-center text-xs sm:text-sm md:text-base lg:text-xl whitespace-nowrap ">
                     {isEdit ? <input type='text' className='border' onChange={(e) => { setcurrentEditUser({ ...currentEditUser, role: e.target.value }) }} value={currentEditUser.role} name='name' /> : user.role}
                 </td>
-                <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2  md:px-6 md:py-4 align-middle text-xs sm:text-lg md:text-xl lg:text-xl whitespace-nowrap ">
+                <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2   md:px-4 md:py-3  align-middle text-xs sm:text-sm md:text-base lg:text-xl whitespace-nowrap ">
                     <div className='flex gap-3'>
                         {
                             isEdit ? <CiSaveDown2 onClick={() => { handleEditUserSave(user.id); }} className='text-xl text-green-400 border border-w-1 w-8 h-8 p-2' /> : <FaEdit onClick={() => { handleEditUser(user); }} className='text-xl border border-w-1 w-8 h-8 p-2' />

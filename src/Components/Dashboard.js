@@ -82,7 +82,7 @@ const Dashboard = () => {
     }, []);
     return (
 
-        <section className=" bg-blueGray-50">
+        <section className="bg-blueGray-50">
             <div className="w-full xl:w-full xl:mb-0 px-4 mx-auto m-4">
                 <div className="relative flex flex-col break-words bg-white w-full shadow-lg rounded ">
                     <div className="rounded-t mb-0 px-4 py-3 border-0">
@@ -101,20 +101,20 @@ const Dashboard = () => {
                         <table className="items-center bg-transparent w-full  border-collapse ">
                             <thead>
                                 <tr>
-                                    <th className="text-sm  sm:text-3xl  bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1 sm:px-4 sm:py-2  md:px-6 md:py-4  uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                    <th className="text-sm  sm:text-3xl  bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1 sm:px-4 sm:py-2  md:px-4 md:py-3  uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         <input onChange={handleAllCheck} checked={isAllChecked} className="w-[1rem] h-[1rem] sm:w-[1.25rem] sm:h-[1.25rem]" type="checkbox" id="vehicle1" name="vehicle1" value="all" />
 
                                     </th>
-                                    <th className=" bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1  sm:px-4 sm:py-2  md:px-6 md:py-4 text-[13px] sm:text-lg md:text-xl lg:text-xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                    <th className=" bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1  sm:px-4 sm:py-2  md:px-4 md:py-3  text-[13px] sm:text-[1rem] md:text-[17px] lg:text-lg uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         Name
                                     </th>
-                                    <th className=" bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1 sm:px-4 sm:py-2  md:px-6 md:py-4 text-[13px] sm:text-lg md:text-xl lg:text-xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                    <th className=" bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1 sm:px-4 sm:py-2  md:px-4 md:py-3  text-[13px] sm:text-[1rem] md:text-[17px] lg:text-lg  uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         Email
                                     </th>
-                                    <th className=" bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1 sm:px-4 sm:py-2  md:px-6 md:py-4 text-[13px] sm:text-lg md:text-xl lg:text-xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                    <th className=" bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1 sm:px-4 sm:py-2  md:px-4 md:py-3  text-[13px] sm:text-[1rem] md:text-[17px] lg:text-lg  uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         Role
                                     </th>
-                                    <th className=" bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1 sm:px-4 sm:py-2  md:px-6 md:py-4 text-[13px] sm:text-lg md:text-xl lg:text-xl uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                    <th className=" bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1 sm:px-4 sm:py-2  md:px-4 md:py-3  text-[13px] sm:text-[1rem] md:text-[17px] lg:text-lg  uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         Actions
                                     </th>
                                 </tr>
