@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { CiSaveDown2 } from "react-icons/ci";
@@ -29,7 +29,6 @@ const User = ({ user, deleteUser, selectedUsers, setselectedUsers, isAllChecked,
         setUsers(newState)
         setIsEdit(false);
         // console.log(newState);
-
     }
 
     const handleSingleChange = (name) => {

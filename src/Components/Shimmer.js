@@ -2,11 +2,13 @@ import React from 'react'
 
 const Shimmer = () => {
     return (
-        <div className='w-full h-full text-xl px-3 py-5 '>
-            <p className='text-center '>
-                No Users Found
-            </p>
-        </div>
+        <tr className='h-[500px]'>
+            <td className=' text-xl px-3 py-5 '>
+                <p className=''>
+                    No Users Found
+                </p>
+            </td>
+        </tr>
     )
 }
 

@@ -98,7 +98,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="block w-full overflow-x-auto">
-                        <table className="items-center bg-transparent w-full border-collapse ">
+                        <table className="items-center bg-transparent w-full  border-collapse ">
                             <thead>
                                 <tr>
                                     <th className="text-sm  sm:text-3xl  bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 px-2 py-1 sm:px-4 sm:py-2  md:px-6 md:py-4  uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
@@ -120,7 +120,7 @@ const Dashboard = () => {
                                 </tr>
                             </thead>
 
-                            <tbody>
+                            <tbody className="">
                                 {
 
                                     users.length === 0 ? <Shimmer /> :
@@ -128,6 +128,7 @@ const Dashboard = () => {
                                             return <User key={user.id} user={user} users={users} setUsers={setUsers} deleteUser={deleteUser} selectedUsers={selectedUsers} setselectedUsers={setselectedUsers} isAllChecked={isAllChecked} setIsAllChecked={setIsAllChecked} setButtonDisabled={setButtonDisabled} />
                                         })
                                 }
+
 
                             </tbody>
 
