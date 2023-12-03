@@ -65,9 +65,9 @@ const User = ({ user, deleteUser, selectedUsers, setselectedUsers, isAllChecked,
                 <td className="border border-l-0 border-r-0 px-2 py-1 sm:px-4 sm:py-2   md:px-4 md:py-3  align-middle text-xs sm:text-sm md:text-base lg:text-xl whitespace-nowrap ">
                     <div className='flex gap-3'>
                         {
-                            isEdit ? <CiSaveDown2 onClick={() => { handleEditUserSave(user.id); }} className='text-xl text-green-400 border border-w-1 w-8 h-8 p-2' /> : <FaEdit onClick={() => { handleEditUser(user); }} className='text-xl border border-w-1 w-8 h-8 p-2' />
+                            isEdit ? <CiSaveDown2 onClick={() => { handleEditUserSave(user.id); }} className='edit text-xl text-green-400 border border-w-1 w-8 h-8 p-2' /> : <FaEdit onClick={() => { handleEditUser(user); }} className='save text-xl border border-w-1 w-8 h-8 p-2' />
                         }
-                        <MdDeleteOutline onClick={() => { deleteUser(user.id, currentEditUser) }} className='text-red-500 text-xl border border-w-1 h-8 w-8 p-2' />
+                        <MdDeleteOutline onClick={() => { deleteUser(user.id, currentEditUser) }} className='delete text-red-500 text-xl border border-w-1 h-8 w-8 p-2' />
                     </div>
                 </td>
             </tr>
